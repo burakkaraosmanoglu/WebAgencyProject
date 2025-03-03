@@ -1,0 +1,33 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Team>
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Ekibimiz</h2>
+                <h3 class="section-subheading text-muted">Ekip Üyelerimizi Yakından Tanıyın</h3>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="@item.ImageUrl" alt="..." />
+                            <h4>@item.NameSurname</h4>
+                            <p class="text-muted">@item.Branch.BranchName</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                }
+                    </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">
+    Deneyimli ekibimiz, her projeye tutkuyla yaklaşarak markanız için en etkili medya stratejilerini oluşturur.
+
+
+</p></div>
+            </div>
+        
+    </div>
+</section>

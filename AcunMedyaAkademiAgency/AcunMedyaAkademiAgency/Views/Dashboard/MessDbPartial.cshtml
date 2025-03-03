@@ -1,0 +1,42 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Message>
+
+
+    <div class="col-xl-4 col-md-6 grid-margin stretch-card">
+        <div class="card card-invoice">
+            <div class="card-body">
+                <h4 class="card-title pb-3">Bekleyen Mesajlar</h4>
+                <div class="list-card">
+                    <div class="row align-items-center">
+                        <div class="col-7 col-sm-8">
+                            @foreach(var item in Model)
+                            {
+                            <div class="row align-items-center">
+                                <div class="col-sm-4">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyWVokw6aGBqeGOcba0CVZpQgqrNOT5oTByg&s" alt="" height="75px;" width="75px;" />
+                                </div>
+                                <div class="col-sm-8 pr-0 pl-sm-0">
+                                    <span>@item.SendDate</span>
+                                    <h6 class="mb-1 mb-sm-0">@item.NameSurname</h6>
+                                    <h1></h1>
+                                    <h6>@item.Title</h6>
+                                </div>
+
+                            </div>
+                            }
+                        </div>
+                        <div class="col-5 col-sm-4">
+                            <div class="d-flex pt-1 align-items-center">
+                                <div class="reload-outer bg-info">
+                                    <i class="mdi mdi-reload"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+

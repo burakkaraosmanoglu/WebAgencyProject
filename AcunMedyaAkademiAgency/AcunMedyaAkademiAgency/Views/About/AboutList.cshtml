@@ -1,0 +1,88 @@
+﻿﻿@model List<AcunMedyaAkademiAgency.Entities.About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <head>
+        <style>
+            .table {
+               
+                width: 100%;
+            }
+
+                .table th,
+                .table td {
+                    word-wrap: break-word; /* Uzun kelimeleri kır */
+                    white-space: normal; /* Metnin hücre içinde kalmasını sağla */
+                    text-align: center; /* Hücre içeriğini ortala (isteğe bağlı) */
+                    vertical-align: middle; /* Dikey olarak hizala */
+                }
+
+                    .table td:nth-child(3) { /* Açıklama sütunu için özel genişlik */
+                        max-width: 250px; /* Genişliği belirli bir değerle sınırla */
+                        overflow: hidden; /* Taşan içeriği gizle */
+                        text-overflow: ellipsis; /* Uzun metni üç nokta ile kısalt */
+                    }
+
+            img {
+                border-radius: 50%; /* Resimleri yuvarlak hale getir */
+                width: 50px; /* Resimlerin boyutunu ayarla */
+                height: 50px;
+                object-fit: cover; /* Resmin bozulmadan sığmasını sağla */
+            }
+        </style>
+    </head>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkında Sayfası</h4>
+
+            <p class="card-description">
+                Hakkında ile ilgili işlemleri buradan yapabilirsiniz
+            </p>
+            <form method="get">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Aranacak Kelime" aria-label="Aranacak Kelime" aria-describedby="basic-addon2" name="searchText" />
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-primary" type="button"> Arama </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Hakkında Başlığı</th>
+                            <th>Açıklaması</th>
+                            <th>Resim Yolu</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td><img src="@item.ImageUrl" style="width:75px; height:75px" alt="Proje Görseli" /></td>
+                                <td><a class="btn btn-danger" href="/About/DeleteAbout/@item.AboutID"><i class="fa fa-trash"></i>Sil</a></td>
+                                <td><a class="btn btn-success" href="/About/UpdateAbout/@item.AboutID"><i class="fa fa-pencil">Güncelle</i></a></td>
+                            </tr>
+                            count++;
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/About/CreateAbout/" class="btn btn-info"><i class="mdi mdi-file-check btn-icon-append">Hakkında Oluştur</i></a>
+            </div>
+        </div>
+    </div>
+</div>
